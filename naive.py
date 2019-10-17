@@ -1,3 +1,4 @@
+import h5py
 import numpy as np
 
 def to_one_hot(vec, classes):
@@ -23,8 +24,6 @@ model_lstm.add(Dense(5, activation = 'softmax'))
 opt = keras.optimizers.Adam(lr=0.001)
 model_lstm.compile(opt, loss="categorical_crossentropy", metrics=['accuracy'])
 
-import pudb; pudb.set_trace()
-
 train = x[0:20000]
 y_train = y[0:20000]
 
@@ -37,4 +36,4 @@ model_lstm.save_weights("model_file")
 
 
 #guesses = model_list.predict(test)
-#np.save("guesses", guesses)
+np.save("guesses", guesses)
